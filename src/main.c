@@ -16,7 +16,9 @@ int main() {
         fgets(curcmd, sizeof(curcmd), stdin);
 
         curcmd[strcspn(curcmd, "\n")] = 0;
-        if (strcmp(curcmd, "exit") == 0) exit(0);   
+        if (strcmp(curcmd, "exit") == 0) exit(0);  
+        else if (strcmp(curcmd, "clear") == 0) system("clear");
+        else {printf("shel: command not found :(");} 
     }
 }
 
