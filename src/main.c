@@ -8,7 +8,7 @@ char version[10] = "1.0.0";
 char curcmd[1024];
 
 int main() {
-    printf("\nsheL - v%s\nunder GPL-3.0 license\n\n", version);
+    printf("\nsheL - v%s\nunder GPL-3.0 license\nhttps://github.com/ZIZIES/sheL\n\n", version);
 
     while (1) {
         printf("%% ");
