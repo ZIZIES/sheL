@@ -18,7 +18,19 @@ int main() {
         curcmd[strcspn(curcmd, "\n")] = 0;
         if (strcmp(curcmd, "exit") == 0) exit(0);  
         else if (strcmp(curcmd, "clear") == 0) system("clear");
-        else {printf("shel: command not found :(");} 
+        else {
+        pid_t pid = fork();
+        if (pid == 0) {
+          // child process
+          char *args[] = {curcmd, NULL};
+          execvp(curcmd, args);
+          printf("shel: command not found: %s\n", curcmd);
+          exit(1);
+        } else {
+           // parent waits
+           waitpid(pid, NULL, 0);
+        }
     }
+}
 }
 
